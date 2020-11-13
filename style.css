@@ -1,0 +1,34 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darkgray;
+}
+
+main {
+  width: 22em;
+  height: 32rem;
+  background-color: black;
+  color: gainsboro;
+}
+
+main div {
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(61, 58, 58);
+}
+
+.calc {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.5rem;
+}
+
+#clear {
+  background-color: firebrick;
+  width: 10rem;
+}
