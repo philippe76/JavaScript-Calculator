@@ -8,18 +8,20 @@ body {
 
 main {
   width: 22em;
-  height: 32rem;
+  height: 30.5rem;
   background-color: black;
   color: gainsboro;
 }
 
 main div {
   width: 5rem;
-  height: 5rem;
+  height: 4.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(61, 58, 58);
+  flex-grow: 1;
+  border: 1px solid black;
 }
 
 .calc {
@@ -28,7 +30,15 @@ main div {
   margin: 0.5rem;
 }
 
+#display {
+  background-color: black;
+}
+
 #clear {
   background-color: firebrick;
-  width: 10rem;
+  width: 10.3rem;
+}
+
+#equals {
+  height: 9.6rem;
 }
