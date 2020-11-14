@@ -8,7 +8,7 @@ body {
 
 main {
   width: 22em;
-  height: 30.5rem;
+  height: 31.5rem;
   background-color: black;
   font-family: "Chakra Petch", sans-serif;
   border-radius: 2%;
@@ -38,20 +38,26 @@ button {
   margin: 0.5rem;
 }
 
-#display {
+#display,
+#display-memo {
   width: 21.5rem;
   text-align: right;
   border-radius: 9%;
   overflow: hidden;
+  height: 3rem;
 }
 
 #display div,
-#display button {
+#display-memo div {
   background-color: black;
   display: block;
   float: right;
-  padding-top: 5.7rem;
+  padding-top: 4rem;
   font-size: 1.7rem;
+}
+
+#display-memo div {
+  color: green;
 }
 
 .calc div:hover,
