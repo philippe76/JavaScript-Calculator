@@ -10,21 +10,26 @@ main {
   width: 22em;
   height: 30.5rem;
   background-color: black;
-  color: gainsboro;
   font-family: "Chakra Petch", sans-serif;
   border-radius: 2%;
   position: relative;
 }
 
-main div {
+main div,
+main button {
   width: 5rem;
   height: 4.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: gainsboro;
   background-color: rgb(61, 58, 58);
   flex-grow: 1;
-  border: 1px solid black;
+  margin: 1px;
+}
+
+button {
+  border-style: none;
 }
 
 .calc {
@@ -40,7 +45,8 @@ main div {
   overflow: hidden;
 }
 
-#display div {
+#display div,
+#display button {
   background-color: black;
   display: block;
   float: right;
@@ -48,7 +54,8 @@ main div {
   font-size: 1.7rem;
 }
 
-.calc div:hover {
+.calc div:hover,
+button:hover {
   color: black;
   border: 0.1px solid rgb(160, 156, 156);
 }
@@ -81,11 +88,21 @@ main div {
 
 #divide,
 #multiply,
-#substract,
+#subtract,
 #add {
   background-color: rgb(94, 90, 90);
+  font-size: 1.3rem;
 }
 
 #equals {
   background-color: rgb(27, 52, 99);
+  font-size: 1.3rem;
+}
+
+#multiply {
+  font-size: 0.9rem;
+}
+
+#subtract {
+  font-size: 1.9rem;
 }
