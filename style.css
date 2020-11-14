@@ -32,6 +32,8 @@ main div {
 
 #display {
   background-color: black;
+  width: 21.5rem;
+  text-align: right;
 }
 
 #clear {
@@ -40,5 +42,18 @@ main div {
 }
 
 #equals {
-  height: 9.6rem;
+  height: 9.56rem;
+}
+
+.bottom {
+  display: flex;
+  margin-top: -4.8rem;
+}
+
+.bottom div {
+  height: 4.7rem;
+}
+
+#zero {
+  width: 10.45rem;
 }
