@@ -12,7 +12,8 @@ main {
   background-color: black;
   color: gainsboro;
   font-family: "Chakra Petch", sans-serif;
-  /* font-family: "Press Start 2P", cursive; */
+  border-radius: 2%;
+  position: relative;
 }
 
 main div {
@@ -33,9 +34,18 @@ main div {
 }
 
 #display {
-  background-color: black;
   width: 21.5rem;
   text-align: right;
+  border-radius: 9%;
+  overflow: hidden;
+}
+
+#display div {
+  background-color: black;
+  display: block;
+  float: right;
+  padding-top: 5.7rem;
+  font-size: 1.7rem;
 }
 
 #clear {
@@ -61,5 +71,5 @@ main div {
 }
 
 #decimal {
-  width: 5.15rem;
+  width: 5.11rem;
 }
