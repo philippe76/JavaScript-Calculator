@@ -11,6 +11,8 @@ main {
   height: 30.5rem;
   background-color: black;
   color: gainsboro;
+  font-family: "Chakra Petch", sans-serif;
+  /* font-family: "Press Start 2P", cursive; */
 }
 
 main div {
@@ -55,5 +57,9 @@ main div {
 }
 
 #zero {
-  width: 10.45rem;
+  width: 10.4rem;
+}
+
+#decimal {
+  width: 5.15rem;
 }
