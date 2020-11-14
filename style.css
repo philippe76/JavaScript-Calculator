@@ -32,6 +32,10 @@ button {
   border-style: none;
 }
 
+button:focus {
+  outline: none;
+}
+
 .calc {
   display: flex;
   flex-wrap: wrap;
@@ -86,10 +90,12 @@ button:hover {
 
 #zero {
   width: 10.4rem;
+  margin-top: 2px;
 }
 
 #decimal {
   width: 5.11rem;
+  margin-top: 2px;
 }
 
 #divide,
