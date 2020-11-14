@@ -73,3 +73,14 @@ main div {
 #decimal {
   width: 5.11rem;
 }
+
+#divide,
+#multiply,
+#substract,
+#add {
+  background-color: rgb(94, 90, 90);
+}
+
+#equals {
+  background-color: rgb(27, 52, 99);
+}
