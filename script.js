@@ -20,10 +20,14 @@ const memo = document.querySelector('#display-memo div');
 numbers.forEach(item => {
     item.addEventListener('click', (e) => {
 
-        if (isNaN(display.innerHTML) && memo.innerHTML != '0' ){
+        if (!Number.isInteger(+display.innerHTML) && memo.innerHTML != '0' ){
             display.innerHTML = item.innerHTML; 
-            display.innerHTML = display.innerHTML
-            memo.innerHTML += display.innerHTML; 
+            // display.innerHTML = display.innerHTML
+            memo.innerHTML += item.innerHTML; 
+        }
+        else if (Number.isInteger(+display.innerHTML) && memo.innerHTML != '0' ) {
+            display.innerHTML += item.innerHTML; 
+            memo.innerHTML += item.innerHTML; 
         }
         else {
             display.innerHTML += item.innerHTML; 
