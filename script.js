@@ -16,7 +16,7 @@ const memo = document.querySelector('#display-memo div');
 
 
 
-// display input numbers
+// display numbers
 numbers.forEach(item => {
     item.addEventListener('click', (e) => {
 
@@ -39,23 +39,37 @@ numbers.forEach(item => {
 })
 
 
-// display input operators
+// display operators [ AC / x - + = ]
 operators.forEach(item => {
     item.addEventListener('click', () => {
         if(item != clear && item != equals){
             display.innerHTML = item.innerHTML;
             memo.innerHTML += item.innerHTML
-        }        
+        } 
+        // clear input
+        else if (item === clear) {
+            display.innerHTML = 0;
+            memo.innerHTML = 0;
+        }       
     })    
 })
 
-
-// clear input
-document.getElementById('clear').addEventListener('click', () => {
-    display.innerHTML = 0;
-    memo.innerHTML = 0;
-})
-
+/**
+ * when hit equals
+ * get number 1
+ * get operator 1
+ * get number 2
+ * get result 1
+ * 
+ * then same thing but incremented : 
+ * get number 2
+ * get operator 2
+ * get number 3
+ * get result 2
+ * mix result 1 and 2 
+ * 
+ * and so on...
+*/
 
 
 // when hitting 'equals'
