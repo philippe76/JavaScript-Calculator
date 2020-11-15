@@ -6,26 +6,18 @@ const display = document.querySelector('#display div');
 const memo = document.querySelector('#display-memo div');
 
 
-// function to check if used operator  
-// const isOperator = str => {
-//     operators.forEach(item => {
-//         console.log(str.includes(item.innerHTML));
-//         return str.includes(item.innerHTML)
-//     })
-// }
-
-
-
 // display numbers
 numbers.forEach(item => {
     item.addEventListener('click', (e) => {
 
-        if (!Number.isInteger(+display.innerHTML) && memo.innerHTML != '0' ){
+        // console.log(display.innerHTML);
+        // console.log(!Number.isInteger(+display.innerHTML));
+
+        if (Number.isNaN(+display.innerHTML) && memo.innerHTML != '0' ){
             display.innerHTML = item.innerHTML; 
-            // display.innerHTML = display.innerHTML
             memo.innerHTML += item.innerHTML; 
         }
-        else if (Number.isInteger(+display.innerHTML) && memo.innerHTML != '0' ) {
+        else if (!Number.isNaN(+display.innerHTML) && memo.innerHTML != '0' ) {
             display.innerHTML += item.innerHTML; 
             memo.innerHTML += item.innerHTML; 
         }
@@ -50,7 +42,16 @@ operators.forEach(item => {
         else if (item === clear) {
             display.innerHTML = 0;
             memo.innerHTML = 0;
-        }       
+        }  
+        else if (item === equals) {
+            console.log(memo.innerHTML);
+            let sign = memo.innerHTML[memo.innerHTML.search(/\D/)];
+            let signIndex = memo.innerHTML.search(/\D/);
+            let numb1 = memo.innerHTML.slice(0,signIndex); 
+            let numb2 = memo.innerHTML.slice(signIndex+1); 
+            let result = eval(numb1 + sign + numb2);
+            display.innerHTML = result;
+        }    
     })    
 })
 
@@ -73,10 +74,9 @@ operators.forEach(item => {
 
 
 // when hitting 'equals'
-const calculate = ([...args], [...operators]) => {
-    // console.log([...args] + ' ' + [...operators]);
-    if ([...operators][0] === '+'){
-        return [...args][0] + [...args][1]
-    }
-}
+// const calculate = ([...args], [...operators]) => {
+//     if ([...operators][0] === '+'){
+//         return [...args][0] + [...args][1]
+//     }
+// }
 
