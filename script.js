@@ -15,23 +15,23 @@ numbers.forEach(item => {
         // console.log(memo.innerHTML);
 
         if (Number.isNaN(+display.innerHTML) && memo.innerHTML != '0' ){
-            console.log('HERE : FIRST');
+            // console.log('HERE : FIRST');
             display.innerHTML = item.innerHTML; 
             memo.innerHTML += item.innerHTML; 
         }
         else if (!Number.isNaN(+display.innerHTML) && memo.innerHTML != '0' ) {
-            console.log('HERE : SECOND');
+            // console.log('HERE : SECOND');
             display.innerHTML += item.innerHTML; 
             memo.innerHTML += item.innerHTML; 
         }
         else if (item.innerHTML == '.' && memo.innerHTML == '0' ) {
-            console.log('HERE : THIRD');
+            // console.log('HERE : THIRD');
             display.innerHTML += item.innerHTML; 
             memo.innerHTML = display.innerHTML; 
         }
 
         else {
-            console.log('HERE !!');            
+            // console.log('HERE !!');            
             console.log(display.innerHTML);
             console.log(item.innerHTML);
             display.innerHTML += item.innerHTML; 
@@ -56,13 +56,12 @@ operators.forEach(item => {
             memo.innerHTML = 0;
         }  
         else if (item === equals) {
-            console.log(memo.innerHTML);
             let sign = memo.innerHTML[memo.innerHTML.search(/\D/)];
             let signIndex = memo.innerHTML.search(/\D/);
             let numb1 = memo.innerHTML.slice(0,signIndex); 
             let numb2 = memo.innerHTML.slice(signIndex+1); 
             let result = eval(numb1 + sign + numb2);
-            display.innerHTML = result;
+            display.innerHTML = result%1 != 0 ? result.toFixed(4) : result;
         }    
     })    
 })
