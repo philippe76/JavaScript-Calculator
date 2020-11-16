@@ -10,18 +10,30 @@ const memo = document.querySelector('#display-memo div');
 numbers.forEach(item => {
     item.addEventListener('click', (e) => {
 
-        // console.log(display.innerHTML);
-        // console.log(!Number.isInteger(+display.innerHTML));
+        // console.log(Number.isNaN(+display.innerHTML));
+        // console.log(item.innerHTML);
+        // console.log(memo.innerHTML);
 
         if (Number.isNaN(+display.innerHTML) && memo.innerHTML != '0' ){
+            console.log('HERE : FIRST');
             display.innerHTML = item.innerHTML; 
             memo.innerHTML += item.innerHTML; 
         }
         else if (!Number.isNaN(+display.innerHTML) && memo.innerHTML != '0' ) {
+            console.log('HERE : SECOND');
             display.innerHTML += item.innerHTML; 
             memo.innerHTML += item.innerHTML; 
         }
+        else if (item.innerHTML == '.' && memo.innerHTML == '0' ) {
+            console.log('HERE : THIRD');
+            display.innerHTML += item.innerHTML; 
+            memo.innerHTML = display.innerHTML; 
+        }
+
         else {
+            console.log('HERE !!');            
+            console.log(display.innerHTML);
+            console.log(item.innerHTML);
             display.innerHTML += item.innerHTML; 
             display.innerHTML = +display.innerHTML
             memo.innerHTML = display.innerHTML; 
