@@ -57,6 +57,7 @@ numbers.forEach(item => {
 })
 
 
+
 // INPUT OPERATOR [ AC / x - + = ]
 operators.forEach(item => {
     
@@ -64,14 +65,6 @@ operators.forEach(item => {
 
         if (item != clear && item != equals){
 
-            // console.log();
-
-            // if ( Number.isNaN(+display.innerHTML)) {
-            //     console.log('HERE');
-
-            // }
-
-  
             display.innerHTML = item.innerHTML;
             memo.innerHTML += item.innerHTML
             
@@ -83,19 +76,23 @@ operators.forEach(item => {
         }  
         else if (item === equals) {
 
-            let sign = memo.innerHTML[memo.innerHTML.search(/\D/)];            
+            // just one sign
+            let sign = memo.innerHTML[memo.innerHTML.search(/[^\w.]+/g, "_")];                     
             let signIndex = memo.innerHTML.indexOf(sign);
-            let allSigns = memo.innerHTML.match(/\D/g);
-            let lastSign = allSigns[allSigns.length-1]
+
             let numb1 = memo.innerHTML.slice(0,signIndex); 
             let numb2 = memo.innerHTML.slice(signIndex+1); 
 
+            // multiple signs
+            let allSigns = memo.innerHTML.match(/[^\w.]+/g, "_")[0].split('');
+
             if (allSigns.length >1) {
 
-                sign = lastSign;
-                lastSignIndex = memo.innerHTML.lastIndexOf(lastSign);             
-                numb2 = memo.innerHTML.slice(lastSignIndex+1);
-                let result = eval(numb1 + sign + numb2);
+                let lastSign = allSigns[allSigns.length-1];
+                let lastSignIndex = memo.innerHTML.lastIndexOf(lastSign);
+                numb2 = memo.innerHTML.slice(lastSignIndex+1)
+
+                let result = eval(numb1 + lastSign + numb2);
                 display.innerHTML = result%1 != 0 ? result.toFixed(4) : result;
             }
 
@@ -103,9 +100,6 @@ operators.forEach(item => {
                 let result = eval(numb1 + sign + numb2);
                 display.innerHTML = result%1 != 0 ? result.toFixed(4) : result;
             }
-
-            // IF LAST SIGN == -  
-            // ==> LAST SIGN = JUST BEFORE LAST SIGN 
 
         }    
     })    
