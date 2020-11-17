@@ -107,13 +107,25 @@ operators.forEach(item => {
     item.addEventListener('click', () => {
 
         if (item != clear && item != equals){
-            display.innerHTML = item.innerHTML;
-            memo.innerHTML += item.innerHTML          
+
+            // already = before in memo
+            if (memo.innerHTML.includes('=')) {
+                let indexOfEqual = memo.innerHTML.indexOf('=');
+                let result = memo.innerHTML.slice(indexOfEqual+1);
+                memo.innerHTML = result + item.innerHTML;
+                display.innerHTML = item.innerHTML;
+            }
+            else {
+                display.innerHTML = item.innerHTML;
+                memo.innerHTML += item.innerHTML   
+            }       
         } 
+
         else if (item === clear) {
             display.innerHTML = 0;
             memo.innerHTML = 0;
         }  
+
         else if (item === equals) {
 
             // just one sign
@@ -121,7 +133,7 @@ operators.forEach(item => {
             let signIndex = memo.innerHTML.indexOf(sign);
 
             let numb1 = memo.innerHTML.slice(0,signIndex); 
-            let numb2 = memo.innerHTML.slice(signIndex+1); 
+            let numb2 = memo.innerHTML.slice(signIndex+1);             
 
             // multiple signs
             let allSigns = memo.innerHTML.match(/[^\w.]+/g, "_")[0].split('');
@@ -140,11 +152,13 @@ operators.forEach(item => {
 
                 let result = eval(numb1 + lastSign + numb2);
                 display.innerHTML = result%1 != 0 ? result.toFixed(4) : result;
+                memo.innerHTML += `=${ result%1 != 0 ? result.toFixed(4) : result}`; 
             }
 
             else {
                 let result = eval(numb1 + sign + numb2);
                 display.innerHTML = result%1 != 0 ? result.toFixed(4) : result;
+                memo.innerHTML += `=${ result%1 != 0 ? result.toFixed(4) : result}`; 
             }
 
         }    
