@@ -27,13 +27,62 @@ numbers.forEach(item => {
 
         // NOT FIRST INPUT
         else {
+
             // previous input = number
             if (!Number.isNaN(+memo.innerHTML[memo.innerHTML.length-1])) {
-                
-                display.innerHTML += item.innerHTML; 
-                memo.innerHTML += item.innerHTML; 
 
-            }   
+                // want to add a .
+                if (item.innerHTML == '.') {
+                                      
+                    // a . somewhere before ? 
+                    let period = /\./g;
+                    if (memo.innerHTML.match(period) != null) {
+
+                        // an operator before too ?
+                        let operator = /\+|-|\/|\*/g;
+                        let operatorArr = memo.innerHTML.match(operator);
+                        if (operatorArr != null) {
+
+                            // a . after this operator ?
+                            let lastOperatorIndex = memo.innerHTML.lastIndexOf(operatorArr[operatorArr.length-1]);
+                            let lastNumber = memo.innerHTML.slice(lastOperatorIndex+1);
+                            if (lastNumber.match(period) != null ) {
+                                display.innerHTML = display.innerHTML;
+                                memo.innerHTML = memo.innerHTML;
+                            }
+
+                            // no . since the operator
+                            else {
+                                display.innerHTML += item.innerHTML; 
+                                memo.innerHTML += item.innerHTML; 
+                            }
+                        }
+
+                        // no operator before the .
+                        else {
+                            display.innerHTML = display.innerHTML;
+                            memo.innerHTML = memo.innerHTML;
+                        }
+
+                    }
+
+                    // no . somewhere before
+                    else {
+                        display.innerHTML += item.innerHTML; 
+                        memo.innerHTML += item.innerHTML; 
+                    }
+
+                }
+
+                // don't want to add a .
+                else {
+                    display.innerHTML += item.innerHTML; 
+                    memo.innerHTML += item.innerHTML; 
+                }
+
+                     
+            }
+
             // previous input != number         
             else {
                 // input and previous input = .
