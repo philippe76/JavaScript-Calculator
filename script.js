@@ -6,94 +6,89 @@ const display = document.querySelector('#display div');
 const memo = document.querySelector('#display-memo div');
 
 
+
 // INPUT NUMBER
 numbers.forEach(item => {
+
+    // functions for displaying 
+    const addToBoth = () => {
+        display.innerHTML += item.innerHTML; 
+        memo.innerHTML += item.innerHTML; 
+    }
+    const noChange = () => {
+        display.innerHTML = display.innerHTML;
+        memo.innerHTML = memo.innerHTML;
+    }
+
     item.addEventListener('click', (e) => {
             
         // FIRST INPUT
         if (display.innerHTML == '0' && memo.innerHTML == '0') {
 
-            // input = .
+            // input == .
             if (item.innerHTML == '.') {
-                display.innerHTML += item.innerHTML; 
-                memo.innerHTML = display.innerHTML; 
+                addToBoth()
             }
             else {
                 display.innerHTML += item.innerHTML; 
-                display.innerHTML = +display.innerHTML
+                display.innerHTML = +display.innerHTML;
                 memo.innerHTML = display.innerHTML; 
             }
         }
 
         // NOT FIRST INPUT
         else {
-
-            // previous input = number
+            // previous input == number
             if (!Number.isNaN(+memo.innerHTML[memo.innerHTML.length-1])) {
 
                 // want to add a .
-                if (item.innerHTML == '.') {
-                                      
-                    // a . somewhere before ? 
+                if (item.innerHTML == '.') {                                    
                     let period = /\./g;
-                    if (memo.innerHTML.match(period) != null) {
-
-                        // an operator before too ?
+                    
+                    // a . somewhere before 
+                    if (memo.innerHTML.match(period) != null) {                        
                         let operator = /\+|-|\/|\*/g;
                         let operatorArr = memo.innerHTML.match(operator);
-                        if (operatorArr != null) {
 
-                            // a . after this operator ?
+                        // an operator before 
+                        if (operatorArr != null) {                           
                             let lastOperatorIndex = memo.innerHTML.lastIndexOf(operatorArr[operatorArr.length-1]);
                             let lastNumber = memo.innerHTML.slice(lastOperatorIndex+1);
+                            
+                             // a . since this operator 
                             if (lastNumber.match(period) != null ) {
-                                display.innerHTML = display.innerHTML;
-                                memo.innerHTML = memo.innerHTML;
+                                noChange()
                             }
-
                             // no . since the operator
                             else {
-                                display.innerHTML += item.innerHTML; 
-                                memo.innerHTML += item.innerHTML; 
+                                addToBoth()
                             }
                         }
-
                         // no operator before the .
                         else {
-                            display.innerHTML = display.innerHTML;
-                            memo.innerHTML = memo.innerHTML;
+                            noChange()
                         }
-
                     }
-
                     // no . somewhere before
                     else {
-                        display.innerHTML += item.innerHTML; 
-                        memo.innerHTML += item.innerHTML; 
-                    }
-
-                }
-
+                        addToBoth()
+                    }                  
+                }                
                 // don't want to add a .
                 else {
-                    display.innerHTML += item.innerHTML; 
-                    memo.innerHTML += item.innerHTML; 
-                }
-
-                     
+                    addToBoth()
+                }                     
             }
 
             // previous input != number         
             else {
-                // input and previous input = .
+                // input and previous input == .
                 if (item.innerHTML == '.' && memo.innerHTML[memo.innerHTML.length-1] == '.') {
-                    display.innerHTML = display.innerHTML; 
-                    memo.innerHTML = memo.innerHTML;
+                    noChange()
                 } 
-                // previous input = .    
+                // previous input == .    
                 else if (memo.innerHTML[memo.innerHTML.length-1] == '.') {
-                    display.innerHTML += item.innerHTML; 
-                    memo.innerHTML += item.innerHTML; 
+                    addToBoth()
                 }
                 else {                  
                     display.innerHTML = item.innerHTML; 
@@ -106,19 +101,15 @@ numbers.forEach(item => {
 })
 
 
-
 // INPUT OPERATOR [ AC / x - + = ]
 operators.forEach(item => {
     
     item.addEventListener('click', () => {
 
         if (item != clear && item != equals){
-
             display.innerHTML = item.innerHTML;
-            memo.innerHTML += item.innerHTML
-            
+            memo.innerHTML += item.innerHTML          
         } 
-
         else if (item === clear) {
             display.innerHTML = 0;
             memo.innerHTML = 0;
