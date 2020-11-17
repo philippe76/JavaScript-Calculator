@@ -132,6 +132,12 @@ operators.forEach(item => {
                 let lastSignIndex = memo.innerHTML.lastIndexOf(lastSign);
                 numb2 = memo.innerHTML.slice(lastSignIndex+1)
 
+                // last sign == -
+                if (allSigns[allSigns.length-1] == '-') {
+                    lastSign = allSigns[allSigns.length-2];
+                    numb2 = memo.innerHTML.slice(lastSignIndex)
+                }
+
                 let result = eval(numb1 + lastSign + numb2);
                 display.innerHTML = result%1 != 0 ? result.toFixed(4) : result;
             }
