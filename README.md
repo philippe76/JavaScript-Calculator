@@ -12,6 +12,8 @@ Still some little improvements to do for my personal goal but challenge is compl
 
 <br />
 
-![CodePen logo](https://icon-library.com/images/codepen-icon/codepen-icon-15.jpg =50x50) <https://codepen.io/filip76/pen/GRqeEyw>
+<!-- ![CodePen logo](https://icon-library.com/images/codepen-icon/codepen-icon-15.jpg =50x50) <https://codepen.io/filip76/pen/GRqeEyw> -->
+
+<img src="https://icon-library.com/images/codepen-icon/codepen-icon-15.jpg" width="50" height="50"> <https://codepen.io/filip76/pen/GRqeEyw>
 
 ![FreeCodeCamp logo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZB5Q9Xaot1lqA3cGZX7-bP39Zt-vTTDcflQ&usqp=CAU)
