@@ -12,4 +12,4 @@ Still some little improvements to do for my personal goal but challenge is compl
 
 <img src="https://icon-library.com/images/codepen-icon/codepen-icon-15.jpg" width="30" height="30"> <https://codepen.io/filip76/pen/GRqeEyw>
 
-<img src="calcul.PNG" />
+<img src="calcul.PNG" height="400px" width="500px" />
