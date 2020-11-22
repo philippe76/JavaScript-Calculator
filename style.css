@@ -1,3 +1,4 @@
+/* MAIN STYLE */
 body {
   height: 100vh;
   display: flex;
@@ -15,6 +16,41 @@ main {
   position: relative;
 }
 
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  font-family: "Chakra Petch", sans-serif;
+  color: whitesmoke;
+  text-shadow: 1px 1px 2px rgb(54, 53, 53);
+}
+
+/* INPUT DISPLAYING */
+#display,
+#display-memo {
+  width: 21.5rem;
+  text-align: right;
+  border-radius: 9%;
+  overflow: hidden;
+  height: 3rem;
+}
+
+#display div,
+#display-memo div {
+  background-color: black;
+  display: block;
+  float: right;
+  padding-top: 4rem;
+  font-size: 1.7rem;
+}
+
+#display-memo div {
+  color: green;
+}
+
+/* BUTTONS */
 main div,
 main button {
   width: 5rem;
@@ -40,28 +76,6 @@ button:focus {
   display: flex;
   flex-wrap: wrap;
   margin: 0.5rem;
-}
-
-#display,
-#display-memo {
-  width: 21.5rem;
-  text-align: right;
-  border-radius: 9%;
-  overflow: hidden;
-  height: 3rem;
-}
-
-#display div,
-#display-memo div {
-  background-color: black;
-  display: block;
-  float: right;
-  padding-top: 4rem;
-  font-size: 1.7rem;
-}
-
-#display-memo div {
-  color: green;
 }
 
 .calc div:hover,
@@ -117,4 +131,17 @@ button:hover {
 
 #subtract {
   font-size: 1.9rem;
+}
+
+/* FOOTER */
+footer {
+  height: 2.5rem;
+  position: fixed;
+  bottom: 10px;
+  right: 2rem;
+}
+
+footer p {
+  color: whitesmoke;
+  text-shadow: 1px 1px 1px rgb(54, 53, 53);
 }

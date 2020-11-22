@@ -167,3 +167,9 @@ operators.forEach(item => {
 
 
 
+// GET FOOTER CURRENT DATE
+document.getElementById('date').innerHTML = new Date().getFullYear()
+                
+                
+                
+                
